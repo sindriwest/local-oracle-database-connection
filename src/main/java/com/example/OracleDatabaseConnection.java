@@ -28,8 +28,11 @@ public class OracleDatabaseConnection {
 
             // Process the result set
             while (resultSet.next()) {
+                int id = resultSet.getRow();
                 String employeeName = resultSet.getString("employee_name");
-                System.out.println("Employee name: " + employeeName);
+                String city = resultSet.getString("city");
+
+                System.out.println("Employee ID: " + id + " - Employee name: " + employeeName + " - City: " + city);
             }
 
             // Close resources
