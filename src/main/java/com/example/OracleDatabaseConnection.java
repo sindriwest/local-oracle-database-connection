@@ -28,8 +28,8 @@ public class OracleDatabaseConnection {
 
             // Process the result set
             while (resultSet.next()) {
-                String data = resultSet.getString("column_name");
-                System.out.println("Data: " + data);
+                String employeeName = resultSet.getString("employee_name");
+                System.out.println("Employee name: " + employeeName);
             }
 
             // Close resources
