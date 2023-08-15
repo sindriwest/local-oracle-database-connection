@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: local-oracle-database-connection-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: local-oracle-database-connection
@@ -13,7 +13,7 @@ spec:
         app: local-oracle-database-connection
     spec:
       containers:
-        - name: local-oracle-database-connection-container
+        - name: java-app
           image: sindriwest/argocd-app:v1.0
           ports:
             - containerPort: 8080
