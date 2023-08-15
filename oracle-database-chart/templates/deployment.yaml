@@ -13,7 +13,7 @@ spec:
         app: local-oracle-database-connection
     spec:
       containers:
-        - name: local-oracle-database-connection
-          image: sindriwest/local-oracle-database-connection:v1.0
+        - name: local-oracle-database-connection-container
+          image: sindriwest/argocd-app:v1.0
           ports:
             - containerPort: 8080
