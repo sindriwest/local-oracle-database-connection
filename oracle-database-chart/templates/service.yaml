@@ -2,14 +2,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "oracle-database-chart.fullname" . }}
-  labels:
-    app.kubernetes.io/name: {{ include "oracle-database-chart.name" . }}
-    helm.sh/chart: {{ include "oracle-database-chart.chart" . }}
+  name: local-oracle-database-connection-service
 spec:
-  type: ClusterIP
-  ports:
-    - port: {{ .Values.database.servicePort }}
-      targetPort: {{ .Values.database.servicePort }}
   selector:
-    app.kubernetes.io/name: {{ include "oracle-database-chart.name" . }}
+    app: local-oracle-database-connection
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080

@@ -1,26 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "oracle-database-chart.fullname" . }}
-  labels:
-    app.kubernetes.io/name: {{ include "oracle-database-chart.name" . }}
-    helm.sh/chart: {{ include "oracle-database-chart.chart" . }}
+  name: local-oracle-database-connection-deployment
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ include "oracle-database-chart.name" . }}
+      app: local-oracle-database-connection
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: {{ include "oracle-database-chart.name" . }}
+        app: local-oracle-database-connection
     spec:
       containers:
-        - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        - name: local-oracle-database-connection
+          image: sindriwest/local-oracle-database-connection:v1.0
           ports:
-            - containerPort: {{ .Values.database.servicePort }}
-      {{- with .Values.imagePullSecrets }}
-      imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+            - containerPort: 8080
