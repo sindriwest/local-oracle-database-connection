@@ -9,8 +9,8 @@ import java.sql.Statement;
 public class OracleDatabaseConnection {
 
     public static void main(String[] args) {
-        // Database connection parameters
-        String jdbcUrl = "jdbc:oracle:thin:@localhost:1521/ORCLPDB1";
+        // Database connection parameters with the Oracle container internal IP and port
+        String jdbcUrl = "jdbc:oracle:thin:@172.19.0.2:1521/ORCLPDB1";
         String username = "system";
         String password = "pass";
 
