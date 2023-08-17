@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: local-oracle-database-connection
-          image: sindriwest/argocd-app:latest
+          image: sindriwest/argocd-app:v2.0
           ports:
             - containerPort: 8080
