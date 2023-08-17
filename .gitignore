@@ -27,3 +27,4 @@ replay_pid*
 target/
 
 local-oracle-database-connection.code-workspace
+dependency-reduced-pom.xml
